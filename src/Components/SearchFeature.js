@@ -5,7 +5,7 @@ function SearchFeature(props) {
   return (
     <form onSubmit={(event) => props.search(event)}>
       <label htmlFor="bookSearch">Search:</label>
-      <input id="bookSearch" name="bookSearch" type="text"/>
+      <input id="bookSearch" name="bookSearch" type="text" required/>
       <button type='submit'>Submit</button>
       <div className="filterOptions">
         <label htmlFor="printType">Print Type:</label>

@@ -2,16 +2,16 @@ import React from 'react';
 import './ListItem.css';
 
 
-function ListItem() {
+function ListItem(props) {
   return(
     <li className="resultItem">
-      <h2>Book Title</h2>
+      <h2>{props.item.title}</h2>
       <div className="content">
-        <img src="http://books.google.com/books/content?id=zYw3sYFtz9kC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api" alt="book" className="bookImage"/>
+        <img src={props.item.thumbnail} alt="bookcover" className="bookImage"/>
         <div className="separator">
-          <span className="author">Author: name</span>
-          <span className="price"> Price: $100.00</span>
-          <p className="description">this is the result description</p>
+          <span className="author">Author: {props.item.author}</span>
+          <span className="price"> Price: ${props.item.price}</span>
+          <p className="description">{props.item.description}</p>
         </div>
       </div>
     </li>
