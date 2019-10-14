@@ -38,13 +38,17 @@ class BookSearchApp extends React.Component {
             })
             return [];
           } else {
+            this.setState({
+              error: null,
+            })
             const newData = res.items.map(book => {
               return {
                 title: book.volumeInfo.title,
                 author: (book.volumeInfo.authors ? book.volumeInfo.authors.join(' ') : 'No Author Information'),
                 price: (book.saleInfo.listPrice ? book.saleInfo.listPrice.amount : 0),
                 description: book.volumeInfo.description,
-                thumbnail: book.volumeInfo.imageLinks.smallThumbnail,
+                thumbnail: (book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : null),
+                previewLink: (book.volumeInfo.previewLink ? book.volumeInfo.previewLink : null),
               }
             })
             return newData;
@@ -89,7 +93,9 @@ class BookSearchApp extends React.Component {
 
     return (
       <main className='App'>
-        <h1>Google Book Search</h1>
+        <header>
+          <h1>Google Book Search</h1>
+        </header>
         <h2>{this.state.error}</h2>
         <SearchFeature form={this.state.form} changeFilter={this.changeFilter} search={this.search} />
         <ResultList store={this.state.store} />

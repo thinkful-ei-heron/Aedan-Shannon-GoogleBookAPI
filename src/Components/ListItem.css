@@ -1,6 +1,8 @@
 .resultItem {
   width: 60%;
-  margin:0 auto;
+  margin: 0 auto;
+  border: 2px solid lightgrey;
+  padding: 10px;
 }
 
 .content {
@@ -14,4 +16,13 @@ h2 {
 
 .author {
   display: block;
+}
+
+a {
+  color: black;
+}
+
+img {
+object-fit: scale-down;
+margin-right: 10px;
 }
