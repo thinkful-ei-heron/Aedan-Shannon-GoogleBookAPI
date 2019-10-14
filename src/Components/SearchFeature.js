@@ -3,19 +3,19 @@ import React from 'react';
 
 function SearchFeature(props) {
   return (
-    <form>
+    <form onSubmit={(event) => props.search(event)}>
       <label htmlFor="bookSearch">Search:</label>
-      <input id="bookSearch" name="bookSearch" type="text" />
+      <input id="bookSearch" name="bookSearch" type="text"/>
       <button type='submit'>Submit</button>
       <div className="filterOptions">
         <label htmlFor="printType">Print Type:</label>
-        <select id="printType" name="printType" value={props.form.printType}>
+        <select id="printType" name="printType" value={props.form.printType} onChange={(event) => props.changeFilter('printType', event.target.value)}>
           <option value="all">All</option>
           <option value="books">Books</option>
           <option value="magazines">Magazines</option>
         </select>
         <label htmlFor="bookType">Book Type:</label>
-        <select id="bookType" name="bookType" value={props.form.bookType}>
+        <select id="bookType" name="bookType" value={props.form.bookType} onChange={(event) => props.changeFilter('bookType', event.target.value)}>
           <option value="noFilter">No Filter</option>
           <option value="ebooks">eBooks</option>
           <option value="free-ebooks">Free eBooks</option>
