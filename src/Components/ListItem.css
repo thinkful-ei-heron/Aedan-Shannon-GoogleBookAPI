@@ -1,0 +1,17 @@
+.resultItem {
+  width: 60%;
+  margin:0 auto;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+
+h2 {
+  text-align: center;
+}
+
+.author {
+  display: block;
+}
